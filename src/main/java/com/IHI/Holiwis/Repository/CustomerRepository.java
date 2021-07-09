@@ -35,9 +35,9 @@ public class CustomerRepository {
 				
 				Region region = new Region();
 				region.setId(rs.getInt(7));
-				region.setRegion(rs.getString(8));
-				
-				customer.setRegion(region);
+
+				customer.setiDregion(region.getId());
+
 				
 				return customer;
 			}
@@ -61,9 +61,8 @@ public class CustomerRepository {
 				
 				Region region = new Region();
 				region.setId(rs.getInt(7));
-				region.setRegion(rs.getString(8));
-				
-				customer.setRegion(region);
+
+				customer.setiDregion(region.getId());
 				
 				return customer;
 			}
@@ -78,7 +77,7 @@ public class CustomerRepository {
 				+ "'" + customer.getApellidos() + "',"
 				+ "'" + customer.getRfc() + "',"
 				+ "'" + customer.getCorreo() + "',"
-				+ "'" + customer.getRegion().getId() + "'"
+				+ "'" + customer.getiDregion() + "'"
 				+ ");");
 		RespuestaApi msg = new RespuestaApi();
 		msg.setMessage("El cliente ha sido registrado");
@@ -91,7 +90,7 @@ public class CustomerRepository {
 				+ "apellidos = '" + customer.getApellidos() + "',"
 				+ "rfc = '" + customer.getRfc() + "',"
 				+ "correo = '" + customer.getCorreo() + "',"
-				+ "id_region = '" + customer.getRegion().getId() + "'"
+				+ "id_region = '" + customer.getiDregion() + "'"
 				+ "WHERE id = " + id + ";");
 		RespuestaApi msg = new RespuestaApi();
 		msg.setMessage("El cliente ha sido actualizado");
